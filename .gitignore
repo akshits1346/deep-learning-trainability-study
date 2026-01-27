@@ -1,0 +1,18 @@
+# Virtual environments
+venv/
+.env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Data
+data/
+
+# Logs & outputs
+experiments/logs/
+plots/
+
+# OS
+.DS_Store
+
