@@ -140,3 +140,30 @@ pathologies rather than eliminate them.
 Optimizer choice significantly affects observed trainability, suggesting that
 trainability assessments must be interpreted jointly with optimizer dynamics.
 
+## Day 8 — Generalization vs Memorization under Label Noise
+
+### Setup
+- Depth fixed at 8
+- Initialization: He
+- Optimizer: Adam
+- Label noise fractions: 0%, 20%, 40%
+
+### Observation
+With increasing label noise, training accuracy remains high while test accuracy
+degrades substantially, indicating memorization of corrupted labels.
+
+Despite poor generalization, optimization remains stable and gradients do not
+collapse immediately, particularly under Adam.
+
+The gap between training and test accuracy widens with noise, even though loss
+continues to decrease.
+
+### Insight
+Optimization success does not imply generalization. Networks can maintain stable
+training dynamics while shifting from learning meaningful patterns to memorizing
+noise.
+
+### Implication
+Trainability and generalization are partially decoupled phenomena; analyzing
+optimization alone is insufficient to assess model reliability.
+
