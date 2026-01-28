@@ -2,8 +2,8 @@
 
 ## Motivation
 Deep neural networks train and generalize despite extreme overparameterization,
-non-convex objectives, and noisy optimization. This project investigates *why*
-training succeeds, *when* it fails, and *how* optimization and generalization
+non-convex objectives, and noisy optimization. This project investigates why
+training succeeds, when it fails, and how optimization and generalization
 interact in modern deep learning systems.
 
 ## Core Research Questions
@@ -13,18 +13,12 @@ interact in modern deep learning systems.
 
 ## Scope
 This project focuses on controlled empirical studies of:
-- Optimization dynamics (gradient norms, variance, stability)
-- Trainability limits in deep networks
-- Generalization and memorization behavior
-- Representation dynamics during training
+- Optimization dynamics and trainability
+- Gradient behavior in deep networks
+- Generalization and memorization
+- Failure modes beyond accuracy metrics
 
-We emphasize *mechanistic understanding* over benchmark chasing.
-
-## Methodology Overview
-- Minimal neural architectures (MLPs, small CNNs)
-- Controlled synthetic and real datasets
-- Systematic variation of depth, initialization, noise, and optimizers
-- Reproducible experiments with detailed logging
+The emphasis is on mechanistic understanding rather than benchmark performance.
 
 ## Repository Structure
 
