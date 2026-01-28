@@ -113,3 +113,30 @@ Initialization schemes modulate gradient flow primarily during early training,
 suggesting that trainability bottlenecks emerge from deeper structural factors
 beyond initialization alone.
 
+## Day 7 — Optimizer Dynamics and Gradient Variance
+
+### Setup
+- Depth fixed at 8
+- Initialization: He
+- Optimizers compared: SGD, SGD with momentum, Adam
+- Epoch-aggregated gradient mean and variance tracked
+
+### Observation
+SGD exhibits rapid decay of gradient magnitudes in early layers, accompanied by
+high variance and unstable training dynamics.
+
+Momentum partially stabilizes gradient flow, reducing variance but not fully
+preventing attenuation.
+
+Adam maintains higher and more stable gradient magnitudes across epochs,
+particularly in early layers, with narrower variance bands.
+
+### Insight
+Adaptive optimizers such as Adam reshape gradient statistics, reducing apparent
+gradient collapse. However, this stabilization may mask underlying optimization
+pathologies rather than eliminate them.
+
+### Implication
+Optimizer choice significantly affects observed trainability, suggesting that
+trainability assessments must be interpreted jointly with optimizer dynamics.
+
