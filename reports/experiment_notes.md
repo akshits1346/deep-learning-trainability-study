@@ -167,3 +167,35 @@ noise.
 Trainability and generalization are partially decoupled phenomena; analyzing
 optimization alone is insufficient to assess model reliability.
 
+## Day 9 — Representation Drift as a Signature of Memorization
+
+### Setup
+- Model: MLP, depth = 8
+- Optimizer: Adam
+- Initialization: He
+- Comparison: clean labels (0% noise) vs noisy labels (40%)
+- Representations extracted from the final hidden layer
+- Drift measured via mean cosine similarity to epoch-0 representations
+- Analysis performed on a random subset of 2,000 samples for computational stability
+
+### Observation
+In the clean-label setting, representations evolve gradually and retain high cosine
+similarity to their initial configuration across epochs.
+
+Under 40% label noise, representations drift significantly faster, with a sharp
+drop in similarity during early training epochs followed by continued divergence.
+
+Importantly, this drift occurs even though optimization remains stable and training
+accuracy continues to increase.
+
+### Interpretation
+Memorization is characterized not by optimization failure, but by accelerated
+reorganization of the internal feature space. The network continues to update
+representations aggressively, but these updates no longer correspond to meaningful
+structure in the data.
+
+### Insight
+Generalization failure manifests as **representational instability**, not gradient
+collapse or divergence. Representation drift provides a mechanistic explanation
+for how networks transition from learning to memorization under noisy supervision.
+
