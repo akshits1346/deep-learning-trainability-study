@@ -225,3 +225,33 @@ Generalization failure under noisy supervision can be understood as a consequenc
 of gradient-induced representational instability, rather than as an optimization
 breakdown.
 
+## Day 11 — Width Scaling and Non-Monotonic Generalization
+
+### Setup
+- Architecture: MLP
+- Fixed depth: 8
+- Hidden widths: 64, 128, 256, 512
+- Label noise: 40%
+- Optimizer: Adam
+- Initialization: He
+- Dataset: MNIST
+- Training protocol unchanged from previous experiments
+
+### Observation
+Increasing model width improves optimization efficiency, as reflected by faster
+convergence and higher training accuracy. However, test accuracy does not improve
+proportionally under noisy supervision.
+
+The train–test generalization gap exhibits a non-monotonic relationship with width:
+it initially increases and then plateaus or worsens for larger widths.
+
+### Interpretation
+Overparameterization enables models to fit noisy labels more effectively without
+learning robust features. While increased width reduces optimization difficulty,
+it does not mitigate memorization-induced generalization failure.
+
+### Insight
+Model capacity alone is insufficient to resolve learning under corrupted supervision.
+Width scaling amplifies memorization dynamics rather than stabilizing generalization,
+highlighting a decoupling between optimization and robust feature learning.
+
