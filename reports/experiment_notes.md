@@ -34,3 +34,32 @@ across depth, even in relatively shallow networks.
 - Track gradient evolution across epochs.
 - Study how depth scaling alters these statistics.
 
+## Day 4 — Epoch-wise Gradient Dynamics
+
+### Setup
+- Model: MLP (depth=4, hidden_dim=256)
+- Dataset: MNIST
+- Optimizer: Adam
+- Gradients logged per mini-batch across epochs
+
+### Observation
+Epoch-wise gradient plots show significant vertical dispersion within each epoch.
+This reflects high intra-epoch gradient variance due to mini-batch stochasticity.
+
+Early layers (e.g., first feature extraction layer) exhibit lower gradient
+magnitudes overall, while later layers retain higher-magnitude updates.
+
+Notably, gradient magnitudes fluctuate strongly even when training accuracy
+continues to improve smoothly.
+
+### Interpretation
+Raw epoch-wise plots capture the *distribution* of gradients rather than a
+single epoch-level statistic. This highlights that optimization noise persists
+throughout training and is not visible in loss or accuracy curves.
+
+These plots serve as diagnostic evidence rather than final presentation figures.
+
+### Next Step
+Aggregate gradients per epoch (mean, variance) to extract cleaner temporal
+signals and detect early optimization collapse.
+
