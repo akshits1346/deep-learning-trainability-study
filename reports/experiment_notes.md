@@ -199,3 +199,29 @@ Generalization failure manifests as **representational instability**, not gradie
 collapse or divergence. Representation drift provides a mechanistic explanation
 for how networks transition from learning to memorization under noisy supervision.
 
+## Day 10 — Gradient Variance as a Driver of Representational Instability
+
+### Observation
+Under label noise, early-layer gradient variance increases substantially during
+early training epochs. This increase occurs despite stable optimization and
+continued improvement in training accuracy.
+
+The temporal rise in gradient variance aligns closely with the onset of rapid
+representation drift observed in the hidden feature space.
+
+### Interpretation
+Elevated gradient variance does not destabilize optimization directly, but it
+induces aggressive and unstructured updates to internal representations.
+These updates accelerate representational drift, pushing the network toward
+memorization rather than structured learning.
+
+### Insight
+Optimization stability, gradient health, and representation stability are
+distinct but coupled phenomena. A network may train successfully while its
+internal representations become progressively less meaningful.
+
+### Takeaway
+Generalization failure under noisy supervision can be understood as a consequence
+of gradient-induced representational instability, rather than as an optimization
+breakdown.
+
