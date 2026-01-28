@@ -63,3 +63,28 @@ These plots serve as diagnostic evidence rather than final presentation figures.
 Aggregate gradients per epoch (mean, variance) to extract cleaner temporal
 signals and detect early optimization collapse.
 
+## Day 5 — Epoch-wise Aggregation and Depth Scaling
+
+### Setup
+- Depths evaluated: 2, 4, 8
+- Aggregated per-epoch gradient statistics (mean and variance)
+- Same optimizer, data, and initialization across runs
+
+### Observation
+Aggregated curves reveal clear depth-dependent behavior.
+Shallower networks (depth=2) maintain stable gradient magnitudes across epochs,
+while deeper networks (depth=8) exhibit faster decay and higher variance early
+in training.
+
+Early layers in deeper networks show suppressed gradient magnitudes relative to
+later layers, with widening variance bands as depth increases.
+
+### Insight
+Depth amplifies gradient imbalance and instability, even when training accuracy
+appears normal. Aggregated statistics expose trainability limits that are not
+visible in raw accuracy metrics.
+
+### Implication
+Trainability degradation with depth manifests as early gradient attenuation and
+increased variance, suggesting depth-dependent optimization bottlenecks.
+
