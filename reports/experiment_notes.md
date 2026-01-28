@@ -88,3 +88,28 @@ visible in raw accuracy metrics.
 Trainability degradation with depth manifests as early gradient attenuation and
 increased variance, suggesting depth-dependent optimization bottlenecks.
 
+## Day 6 — Initialization Schemes and Gradient Stability
+
+### Setup
+- Depth fixed at 8 (challenging regime)
+- Initialization schemes: Xavier, He, Orthogonal
+- Aggregated mean gradient norms per epoch
+
+### Observation
+Initialization choice significantly affects early training dynamics.
+He initialization maintains higher gradient magnitudes in early layers during
+initial epochs, while Xavier exhibits faster attenuation.
+
+Orthogonal initialization shows more stable gradient propagation initially,
+but does not fully prevent gradient decay over training.
+
+### Insight
+Proper initialization can delay—but not eliminate—trainability degradation
+in deeper networks. Initialization interacts strongly with depth but does not
+override fundamental optimization limitations.
+
+### Implication
+Initialization schemes modulate gradient flow primarily during early training,
+suggesting that trainability bottlenecks emerge from deeper structural factors
+beyond initialization alone.
+
