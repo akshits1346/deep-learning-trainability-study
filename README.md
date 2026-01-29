@@ -14,6 +14,13 @@ interact in modern deep learning systems.
 Despite successful optimization, deeper networks exhibit early gradient attenuation,
 revealing trainability limits that are not reflected in accuracy alone.
 
+## Where to Look First (2–3 minutes)
+If you are short on time:
+1. Open `figures/day9_representation_drift/` to see how representations destabilize under noise
+2. Open `figures/day10_gradient_variance/` to see early-layer gradient instability
+3. Open `figures/day12_dataset_shift/` to see robustness collapse under distribution shift
+4. Read `reports/research_summary.md` for the full narrative
+
 ---
 
 ### Representation Drift under Memorization
@@ -45,4 +52,9 @@ This project focuses on controlled empirical studies of:
 The emphasis is on mechanistic understanding rather than benchmark performance.
 
 ## Repository Structure
+
+experiments/        # Training and analysis scripts
+utils/              # Model, optimization, and logging utilities
+reports/            # Detailed experiment notes and research summary
+figures/            # Curated, final result figures
 
