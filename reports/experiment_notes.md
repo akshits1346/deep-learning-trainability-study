@@ -255,3 +255,43 @@ Model capacity alone is insufficient to resolve learning under corrupted supervi
 Width scaling amplifies memorization dynamics rather than stabilizing generalization,
 highlighting a decoupling between optimization and robust feature learning.
 
+## Day 12 — Dataset Shift Reveals Representation Fragility
+
+### Setup
+- Architecture: MLP (depth 8, width 256)
+- Dataset: MNIST
+- Distribution shift: Random rotation (±30°) applied only at test time
+- Label noise levels: 0% and 40%
+- Optimizer: Adam
+- Epochs: 15
+
+### Observations
+Under clean supervision (0% noise), the model achieves near-perfect training
+accuracy (~99%) and maintains strong performance under dataset shift
+(~90–91%).
+
+Under noisy supervision (40% noise), training accuracy saturates at a much lower
+value (~60–61%), and performance under dataset shift drops further
+(~84–87%) with noticeable instability across epochs.
+
+Despite the noisy model not fully memorizing the training data, it generalizes
+significantly worse under distribution shift.
+
+### Interpretation
+Noisy supervision degrades the quality of learned representations rather than
+just final accuracy. The model fails to capture invariant features that remain
+stable under input transformations.
+
+Dataset shift exposes representational brittleness that is not apparent from
+training accuracy alone.
+
+### Key Insight
+Generalization robustness depends on representation quality, not optimization
+success. Label noise induces shortcut learning that collapses under even mild
+distribution shifts.
+
+### Takeaway
+Dataset shift serves as a diagnostic tool for distinguishing true feature
+learning from superficial fitting, revealing hidden failure modes caused by
+noisy supervision.
+
