@@ -54,6 +54,30 @@ Models trained under noisy supervision perform significantly worse under
 distribution shift, even when training accuracy remains reasonable. Dataset shift
 reveals representation brittleness invisible to standard evaluation.
 
+## Evidence Map
+
+Each empirical claim is supported by targeted experiments and logged metrics:
+
+- **Representation Drift Under Noise**  
+  Supported by cosine similarity decay of hidden-layer representations under 40% label noise  
+  (see: figures/day9_representation_drift/representation_drift_noise40.png)
+
+- **Gradient Variance and Learning Instability**  
+  Early-layer gradient variance increases temporally alongside representation drift  
+  (see: figures/day10_gradient_variance/early_gradient_variance_noise40.png)
+
+- **Depth-Dependent Trainability Limits**  
+  Gradient attenuation in early layers grows with network depth despite stable optimization  
+  (see: figures/day10_gradient_variance/depth8_first_layer_gradient_norm.png)
+
+- **Capacity-Induced Memorization**  
+  Increasing width accelerates optimization without reducing generalization error  
+  (see: width-scaling experiments, Day 11)
+
+- **Dataset Shift Vulnerability**  
+  Models trained under noisy supervision degrade sharply under distribution shift  
+  (see: figures/day12_dataset_shift/dataset_shift_noise40.png)
+
 ## Conclusion
 Generalization failure in deep neural networks arises from representational
 collapse rather than optimization failure. Robust learning requires stable,
