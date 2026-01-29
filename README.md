@@ -9,7 +9,7 @@ interact in modern deep learning systems.
 ## Key Empirical Findings
 
 ### Depth-Dependent Gradient Degradation
-![Gradients vs depth](figures/depth_8_feature_extractor.0.weight.png)
+![Gradients vs depth](figures/day10_gradient_variance/depth8_first_layer_gradient_norm.png)
 
 Despite successful optimization, deeper networks exhibit early gradient attenuation,
 revealing trainability limits that are not reflected in accuracy alone.
@@ -24,7 +24,7 @@ If you are short on time:
 ---
 
 ### Representation Drift under Memorization
-![Representation drift](figures/drift_noise_40.png)
+![Representation drift](figures/day9_representation_drift/representation_drift_noise40.png)
 
 With noisy supervision, internal representations drift rapidly even while training
 accuracy improves, indicating memorization rather than structured learning.
@@ -32,10 +32,15 @@ accuracy improves, indicating memorization rather than structured learning.
 ---
 
 ### Gradient Variance and Learning Failure
-![Gradient variance](figures/gradvar_noise_40.png)
+![Gradient variance](figures/day10_gradient_variance/early_gradient_variance_noise40.png)
 
 Increased early-layer gradient variance temporally aligns with accelerated
 representation drift, providing a mechanistic explanation for generalization failure.
+
+### Dataset Shift Reveals Hidden Failure Modes
+![Dataset shift clean](figures/day12_dataset_shift/dataset_shift_noise0.png)
+
+![Dataset shift noisy](figures/day12_dataset_shift/dataset_shift_noise40.png)
 
 ## Core Research Questions
 - How do gradients behave as depth, width, and optimization choices vary?
