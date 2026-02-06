@@ -58,8 +58,9 @@ The emphasis is on mechanistic understanding rather than benchmark performance.
 
 ## Repository Structure
 
-experiments/        # Training and analysis scripts
-utils/              # Model, optimization, and logging utilities
-reports/            # Detailed experiment notes and research summary
-figures/            # Curated, final result figures
+- **experiments/** – Training and analysis scripts  
+- **utils/** – Model, optimization, and logging utilities  
+- **reports/** – Detailed experiment notes and research summaries  
+- **figures/** – Curated, final result figures
+
 
